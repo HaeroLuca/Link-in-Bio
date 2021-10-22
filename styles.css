@@ -1,0 +1,182 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+/*Typography*/
+
+html {
+  /* 62.5% of 16px = 10px */
+  font-size: 62.5%;
+  background: black url(/images/banner.png) center center no-repeat;
+  background-size: cover;
+  color: #00d9ff;
+}
+
+body {
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-size: 2.4rem;
+  line-height: 1.5em;
+  margin: 0;
+  color: var(--color-body);
+  display: block;
+  place-items: center;
+}
+/*Media,media query e un fel de if, ce e in acolade devine activ doar daca codul din paranteze() e adevarat, ce e in{}se indeplineste doar daca e adevarat ce e in () */
+@media (min-width: 500px) {
+  body {
+    display: grid;
+  }
+}
+
+h1,
+h2,
+h3 {
+  color: var(--color-headings);
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 7rem;
+}
+
+h2 {
+  font-size: 4rem;
+}
+
+h3 {
+  font-size: 3rem;
+}
+
+p {
+  margin-top: 0;
+}
+
+@media screen and (min-width: 1024px) {
+  body {
+    font-size: 1.8rem;
+  }
+
+  h1 {
+    font-size: 8rem;
+  }
+
+  h2 {
+    font-size: 4rem;
+  }
+
+  h3 {
+    font-size: 2.4rem;
+  }
+}
+
+.Container {
+  width: 90%;
+  margin: 2vh auto;
+  color: var(--color-primary);
+  padding: 1rem;
+  /*comanda clamp noua buna pentru font responsive*/
+  /*media query e mai puternic decat clamp, clamp e folosit doar la dimensiuni in pixeli, in media query putem pune si min width care se leaga de view port, putem folosi si conditii gen if, care se activeaza daca se indeplinesc niste masuri */
+  font-size: clamp(1rem, 2vw, 2rem);
+  line-height: 1.5em;
+}
+@media (min-width: 300px) {
+  .Container {
+    margin: 2vh;
+    padding: 2rem;
+    border-radius: 2rem;
+  }
+  @media (min-width: 800px) {
+    .Container {
+      margin: 2vw;
+      padding: 3rem;
+    }
+  }
+
+  .Avatar {
+    display: block;
+    float: left;
+    width: 100px;
+    height: auto;
+    /* margin: 0 1em 0 0 */
+    border-radius: 50%;
+    margin: 0 1em 1em 0;
+  }
+
+  @media (min-width: 380px) {
+    .Avatar {
+      float: left;
+    }
+  }
+
+  @media (min-width: 930px) {
+    .Avatar {
+      width: clamp(130px, 14vw, 12rem);
+    }
+  }
+
+  .TitlulPaginii {
+    display: block;
+    font-size: clamp(2rem, 6vw, 4rem);
+    line-height: 1em;
+    margin: 0;
+  }
+
+  .DescrierePrincipala {
+    display: block;
+    margin: 0.5em 0 1.5em;
+  }
+
+  /*clear both face ca floatul sa ramana in elementul lui sa nu interfereze cu celelalte elemente*/
+  main {
+    clear: both;
+  }
+
+  .ListaLinkuri {
+    display: block;
+    margin: 0;
+    padding: 0;
+    border-top: 1px;
+  }
+  .ListaItem {
+    display: block;
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid #00d9ff;
+  }
+  .ListaLink {
+    display: block;
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid #00d9ff;
+    text-decoration: none;
+  }
+  .ListaLink:hover {
+    background: #ccc;
+    color: black;
+  }
+  .ListaTitlu,
+  .ListaText {
+    display: block;
+    font-size: 1em;
+    line-height: 1.5em;
+    padding: 0;
+  }
+  /*Pentru linkurile lungi sa fie ok */
+  .ListaText {
+    /*nu lasa sa iasa de pe un singur rand textul*/
+    white-space: nowrap;
+    /*taie textul cand se termina containerul*/
+    overflow: hidden;
+    /*daca e overflow pune trei puncte la final ...*/
+    text-overflow: ellipsis;
+  }
+
+  @media (min-width: 1800px) {
+    .ListaLinkuri {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
